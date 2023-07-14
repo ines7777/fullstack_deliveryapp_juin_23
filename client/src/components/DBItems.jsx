@@ -1,11 +1,15 @@
 import React from 'react'
 import {DataTable} from '../components'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteAProduct, getAllProducts } from '../api'
+import { setAllProducts } from '../context/actions/productActions'
+import { alertNULL, alertSuccess } from '../context/actions/alertActions'
  
 
 const DBItems = () => {
   
   const products= useSelector((state) => state.products)
+  const dispatch=useDispatch()
 
 
   return (
@@ -25,7 +29,39 @@ const DBItems = () => {
         </p>
       )}
       ]}
-      data={products}/>
+      data = {products} 
+      title = "List of products" 
+      actions={[
+        {
+          icon: "edit",
+          tooltip: "Edit Data",
+          onClick : (event, rowData)=>{
+          alert("You want to edit" + rowData.productId)
+        }
+      },
+      {
+        icon: "delete",
+        tooltip: "Delete Data",
+        onClick : (event, rowData)=>{
+        
+        if (window.confirm("Are you sure you want to perform this action")){
+          deleteAProduct(rowData.productId).then(res=>{
+            dispatch(alertSuccess("Product deleted"))
+            setInterval(() => {
+              dispatch(alertNULL())
+            }, 3000);
+            getAllProducts().then(data=>{
+              dispatch(setAllProducts(data))
+            })
+          })
+
+        }
+
+    
+        
+      }
+    }
+      ]} />
     </div>
   )
 }
