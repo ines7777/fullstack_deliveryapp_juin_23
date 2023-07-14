@@ -16,6 +16,7 @@ const DBHeader = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
 
+  console.log(user)
 
 
   const signOut=()=>{
@@ -56,7 +57,7 @@ const DBHeader = () => {
            <div className='flex items-center justify-center gap-2'>
               <div className='w-10 h-10 rounded-md shadow-md cursor-pointer overflow-hidden'>
                  <motion.img className='w-full h-full object-cover'
-                 src={user?.picture ? user?.picture : {avatar} } 
+                 src={user?.picture ? user?.picture : avatar } 
                  whileHover={{scale:1.15}}
                  referrerPolicy='no-referrer'/>
   

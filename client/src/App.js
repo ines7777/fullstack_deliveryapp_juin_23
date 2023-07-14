@@ -12,7 +12,7 @@ import { Alert, MainLoader } from './components';
 
 
 const App = () => {
-
+  const user =useSelector((state) =>state.user)
   const firebaseAuth=getAuth(app)
   const [isLoading, setIsLoading]=useState(false)
   const alert = useSelector((state)=>state.alert)
@@ -52,7 +52,7 @@ const App = () => {
       <Routes>
         <Route path="/*" element={<Main/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/dashboard/*" element={<Dashbrd/>}/>
+        <Route path="/dashboard/*" element={user?.email === "ineschtioui8@gmail.com" ? <Dashbrd/> : <Main/>}/>
       </Routes>
 
 

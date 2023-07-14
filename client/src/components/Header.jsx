@@ -62,7 +62,7 @@ const Header = () => {
                overflow-hidden flex items-center justify-center'> 
 
                <motion.img className='w-full h-full object-cover'
-                src={user?.picture ? user?.picture : {avatar}}
+                src={user?.picture ? user?.picture : avatar}
                 whileHover={{scale:1.15}}  referrerPolicy='no-referrer'/>
 
               </div>
@@ -72,9 +72,9 @@ const Header = () => {
                 {...slideTop}
                 onMouseLeave={()=> setIsMenu(false)} className='px-6 py-4 w-48 bg-lightOverlay backdrop-blur-md 
                 rounded-md shadow-md absolute top-12 right-0 flex flex-col gap-4'>
-                  <Link className='hover:text-red-500 text-xl text-textColor' to={"/dashboard/home"}>
+                  {user?.email === "ineschtioui8@gmail.com" && <Link className='hover:text-red-500 text-xl text-textColor' to={"/dashboard/home"}>
                     Dashboard
-                  </Link>
+                  </Link>}
   
                   <Link className='hover:text-red-500 text-xl text-textColor' to={"/profile"}>
                     My profile
