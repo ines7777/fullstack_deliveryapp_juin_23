@@ -46,7 +46,7 @@ const DBItems = () => {
         
         if (window.confirm("Are you sure you want to perform this action")){
           deleteAProduct(rowData.productId).then(res=>{
-            dispatch(alertSuccess("Product deleted"))
+            dispatch(alertSuccess("Product deleted"));
             setInterval(() => {
               dispatch(alertNULL())
             }, 3000);
