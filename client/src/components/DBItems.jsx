@@ -10,7 +10,7 @@ const DBItems = () => {
   
   const products= useSelector((state) => state.products)
   const dispatch=useDispatch()
-
+  console.log("prod", products)
 
   return (
     <div className='flex items-center justify-self-center gap-4 pt-6 w-full'>

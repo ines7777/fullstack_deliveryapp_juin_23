@@ -41,9 +41,9 @@ const listAllUsers = async(nextPageToken) => {
           listAllUsers(listUsersResult.pageToken);
         }
       })
-      .catch((error) => {
-        console.log('Error listing users:', error);
-      });
+      .catch((error) =>{ console.log('Error listing users:', error)} 
+       
+      );
   };
   // Start listing users from the beginning, 1000 at a time.
   listAllUsers();
@@ -51,7 +51,7 @@ const listAllUsers = async(nextPageToken) => {
   router.get("/all", async(req,res)=>{
     listAllUsers();
     try {
-        return res.status(200).send({ success:true, data:data, dataCount })
+        return res.status(200).send({ success:true, data:data })
     } catch (error) {
         return res.send({ success:false, msg:`error in listening users: ${error}` })
     }

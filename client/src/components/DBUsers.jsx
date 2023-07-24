@@ -6,7 +6,8 @@ import DataTable from './DataTable'
 import avatar from "../assets/img/avatar.png"
 
 const DBUsers = () => {
-  const allUsers= useSelector(state=>state.allUsers)
+  const allUsers= useSelector((state)=>state.allUsers)
+  console.log("all users", allUsers)
   const dispatch=useDispatch()
 
   useEffect(()=>{
@@ -16,6 +17,11 @@ const DBUsers = () => {
       })
     }
   }, [])
+  // return(
+  //   <div>
+  //     dbusers
+  //   </div>
+  // )
   return (
     <div className='flex items-center justify-self-center gap-4 pt-6 w-full'>
     <DataTable columns={[

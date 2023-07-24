@@ -4,6 +4,7 @@ import "swiper/css"
 import "../assets/css/swiperStyles.css"
 import "swiper/css/bundle"
 import { useSelector } from 'react-redux'
+import {SliderCard} from '../components'
 
 const Slider = () => {
     const products=useSelector((state)=>state.products)
@@ -20,7 +21,9 @@ const Slider = () => {
  className="mySwiper">
   
   {fruits && fruits.map((data,i)=> (
-    <SwiperSlide key={i}>slide1</SwiperSlide>
+    <SwiperSlide key={i}>
+      <SliderCard key={i} data={data} index={i}/>
+      </SwiperSlide>
   ))}
        
   </Swiper>

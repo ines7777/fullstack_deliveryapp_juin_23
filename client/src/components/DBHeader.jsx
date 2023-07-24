@@ -16,7 +16,7 @@ const DBHeader = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
 
-  console.log(user)
+  // console.log(user)
 
 
   const signOut=()=>{
