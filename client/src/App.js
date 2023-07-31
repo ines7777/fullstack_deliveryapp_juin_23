@@ -10,6 +10,7 @@ import {motion} from 'framer-motion'
 import { fadeInOut } from './animations';
 import { Alert, MainLoader } from './components';
 import { setCartItems } from './context/actions/cartActions';
+import {CheckOutSuccess} from './components';
 
 
 const App = () => {
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/*" element={<Main/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/dashboard/*" element={user?.email === "ineschtioui8@gmail.com" ? <Dashbrd/> : <Main/>}/>
+        <Route path="/checkout-success" element={<CheckOutSuccess/>}/>
       </Routes>
 
 

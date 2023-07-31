@@ -21,7 +21,7 @@ const SliderCard = ({ data, index }) => {
       });
 
       setInterval(() => {
-        dispatch(alertNULL);
+        dispatch(alertNULL());
       }, 3000);
     });
   };
